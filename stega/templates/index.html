@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User steganography System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Fonts */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-image: url('static/images/i.gif');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        nav a:hover {
+            color: #ffc107;
+        }
+        
+        /* Header */
+        header {
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        header h1, header h2 {
+            margin: 0;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        section {
+            padding: 40px;
+            text-align: center;
+            margin: 20px; /* Remove margin */
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff; /* White color */
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #fff;
+            animation: typing 2s steps(30, end), blink-caret 0.5s step-end infinite alternate;
+        }
+        
+        section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            color: #fff; /* White color */
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #fff; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.9; }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="login">Login</a>
+        <a href="register">Register</a>
+        <a href="main">Get Started</a>
+    </nav>
+
+    <header>
+        <div style="background-color: rgba(255, 255, 255, 0.7); padding: 20px; border-radius: 10px;">
+            <h1>Image Steganography System</h1>
+            <h2 id="typingHeader"></h2>
+        </div>
+    </header>
+
+    <section>
+        <h2 id="typingSubtitle"></h2>
+        <p id="typingText"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 USS. All rights reserved</p>
+    </footer>
+
+    <script>
+        // Typing effect for header and paragraph
+        const headerText = "Stay Safe in the Digital World";
+        const paragraphText = "Protect your data with cutting-edge steganography techniques";
+
+        let headerIndex = 0;
+        let paragraphIndex = 0;
+
+        function typeHeader() {
+            if (headerIndex < headerText.length) {
+                document.getElementById("typingHeader").innerHTML += headerText.charAt(headerIndex);
+                headerIndex++;
+                setTimeout(typeHeader, 100);
+            }
+        }
+
+        function typeParagraph() {
+            if (paragraphIndex < paragraphText.length) {
+                document.getElementById("typingText").innerHTML += paragraphText.charAt(paragraphIndex);
+                paragraphIndex++;
+                setTimeout(typeParagraph, 50);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            typeHeader();
+            setTimeout(typeParagraph, 1500); // Delayed start for paragraph typing
+        });
+    </script>
+</body>
+</html>

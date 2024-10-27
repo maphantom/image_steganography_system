@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unhide Message - Image Steganography Project</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+{% include 'navigation.html' %}
+
+<div class="container mt-5">
+  <h1 class="text-center">Unhide Message From Image</h1>
+  <form class="mt-5" method="post" action="{% url 'decryption' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="image">Select Encoded Image</label>
+      <input type="file" name="image" class="form-control-file" id="image" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Decode</button>
+  </form>
+
+  {% if text %}
+    <p class="text-center mt-3">{{ message }}</p>
+    <div class="alert alert-success mt-3">
+      <h4>Hidden Text</h4>
+      <p>{{ text }}</p>
+    </div>
+  {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hide Message-Image Steganography Project</title>
+</head>
+<body>
+
+{% include 'navigation.html'%}
+
+<div class="container mt-5">
+    <h1 class="text-center">Hide message  in the image </h1>
+    <form method="post"  class="mt-5" action="{% url 'encryption' %}" enctype="multipart/form-data">
+    
+        {% csrf_token %}
+        <div class="form-group">
+            <label>select an image</label>
+            <input type="file" name="image" class="form-control-file" required>
+        
+
+        </div>
+        <div class="form-group">
+            <label>Enter the message to hide:</label>
+            <textarea name="text" class="form-control-file" required rows="3"></textarea>
+        
+
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+    </div>
+
+    {% if message %}
+
+    <p align = 'center'>{{message}}</p>
+    {% endif%}
+</body>
+</html> 

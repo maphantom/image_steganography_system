@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image steganography project</title>
+    
+    <style>
+        /* Center the background images */
+        .background-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh; /* Adjust as needed */
+            padding: 0 20%; /* Adjust space between images */
+        }
+    
+        /* Style for the image links */
+        .background-image-link {
+            display: block;
+            width: 45%; /* Each image takes 45% of the container width */
+            height: 60%; /* Fill the container vertically */
+            background-size: auto 50%; /* Adjust width and maintain aspect ratio */
+            background-position: center;
+            text-align: center;
+            color: white; /* Text color for links */
+            text-decoration: none;
+            font-size: 24px; /* Adjust as needed */
+            transition: opacity 0.3s ease;
+            font-weight: bold; /* Make the text bold */
+        }
+    
+        /* Hover effect for the links */
+        .background-image-link:hover {
+            opacity: 0.8;
+        }
+        
+        /* Style for orange links */
+        .orange-link {
+            color: orange; /* Text color for orange links */
+        }
+    </style>
+    
+</head>
+<body>
+
+{% include 'navigation.html'%}
+
+
+<div class="background-container">
+    <!-- First background image with link -->
+    <button class="background-image-link orange-link" onclick="window.location.href='{% url 'decryption' %}'" style="background-image: url('/static/images/de.jpeg');">
+        Click here to reveal hidden secret information from images
+    </button>
+
+    <!-- Second background image with link -->
+    <button class="background-image-link orange-link" onclick="window.location.href='{% url 'encryption' %}'" style="background-image: url('/static/images/en.jpeg');">
+        Click here to hide  the  secret information to images
+    </button>
+</div>
+
+</body>
+</html>
